@@ -99,10 +99,10 @@ BattleGroundAssement/
 💼 iOS Developer | Swift & SwiftUI Enthusiast  
 
 <p align="left">
-  <a href="https://linkedin.com/in/yourprofile">
+  <a href="https://www.linkedin.com/in/satyamits/">
     <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" />
   </a>
-  <a href="https://github.com/yourusername">
+  <a href="https://github.com/satyamits">
     <img src="https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github" />
   </a>
 </p>
