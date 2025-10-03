@@ -17,8 +17,8 @@ struct HomeListView: View {
             SUIHeaderView(title: "Recent Post")
             SearchBar(placeholder: "Enter Search Text", text: self.$viewModel.searchText)
             
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 12) {
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 12) {
                     ForEach(viewModel.groupedPosts.keys.sorted(), id: \.self) { key in
                         Section(header: Text(key)) {
                             ForEach(viewModel.groupedPosts[key] ?? [], id: \.id) { post in
@@ -38,8 +38,9 @@ struct HomeListView: View {
                 }
             }
             .refreshable {
-                self.viewModel.fetchPosts()
+                self.viewModel.fetchPosts(isRefreshing: true)
             }
+            
         }
         .padding()
         .background(.aeroBorderSecondary)

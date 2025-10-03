@@ -131,14 +131,14 @@ final class HomeListViewModel: SUIBaseViewModel {
 
 extension HomeListViewModel {
     
-    func fetchPosts() {
+    func fetchPosts(isRefreshing: Bool = false) {
         Task { [weak self] in
         guard let self else { return }
-            await self._fetchPosts()
+            await self._fetchPosts(isRefreshing)
         }
     }
     
-    func _fetchPosts() async {
+    func _fetchPosts(_ isRefreshing: Bool) async {
         self.showLoader()
         defer { self.hideLoader() }
         do {
@@ -150,6 +150,10 @@ extension HomeListViewModel {
                     return PostCellModel(userID: userID, id: id, title: title, body: body)
                 }
                 self.posts = self.allPosts
+                if isRefreshing {
+                    self.showSnackbar(title: "", message: "Recent post refreshed successfully", icon: .success)
+                    
+                }
             }
         } catch(let error) {
             self.handleError(withError: error)

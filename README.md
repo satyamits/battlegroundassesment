@@ -1,33 +1,49 @@
-# 📱 BattleGround Assessment
+# 📱 BattleGround Assessment  
 
-A modern **iOS application** built with **SwiftUI** that demonstrates clean architecture, beautiful UI design, and scalable practices. This project showcases my skills in building production-ready iOS apps using best practices like **MVVM, SwiftGen, custom theming, and modular components**.
+<p align="center">
+  <img src="screenshots/banner.png" alt="App Banner" width="800"/>
+</p>  
 
----
-
-## 🚀 Features
-
-- 🎨 **Custom Theming** – Centralized color management with SwiftGen & asset catalogs  
-- ⚡ **SwiftUI Modern UI** – Smooth, declarative UI with adaptive layouts  
-- 🧩 **MVVM Architecture** – Clear separation of concerns for maintainability  
-- 🔍 **Reusable Components** – Modular UI elements for consistency  
-- 🛠 **Scalable Project Setup** – Ready for future feature expansion  
+<p align="center">
+  <b>A modern iOS application built with SwiftUI, MVVM, and SwiftGen demonstrating clean architecture, scalable design, and a beautiful UI experience.</b>
+</p>  
 
 ---
 
-## 🛠 Tech Stack
+## 🏗️ Project Overview  
 
-- **Swift 5+**
-- **SwiftUI**
-- **Combine** (if used in ViewModels)
-- **SwiftGen** – Auto-generating assets & strings  
-- **Xcode 15+**
-- **iOS 17 SDK**
+BattleGround Assessment is a demo iOS project that reflects my skills as an **iOS Developer**.  
+It focuses on **modularity, reusability, and modern app architecture** while showcasing SwiftUI capabilities and theming with **SwiftGen**.  
 
 ---
 
-## 📂 Project Structure
+## ✨ Features Dashboard  
 
-```
+| Category             | Description                                                                 |
+|----------------------|-----------------------------------------------------------------------------|
+| 🎨 **Design System** | Centralized colors & assets powered by **SwiftGen**                        |
+| ⚡ **Modern UI**     | Responsive & declarative **SwiftUI** components                            |
+| 🧩 **Architecture** | Clean **MVVM** ensuring testability and maintainability                     |
+| 🔍 **Reusability**   | Components & utilities written for modular expansion                       |
+| 📊 **Scalable Setup**| Ready for future feature expansion                                          |
+
+---
+
+## 🛠️ Tech Stack  
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Swift-5.10-orange?style=for-the-badge&logo=swift" />
+  <img src="https://img.shields.io/badge/SwiftUI-Declarative-blue?style=for-the-badge&logo=swift" />
+  <img src="https://img.shields.io/badge/MVVM-Clean%20Architecture-green?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/SwiftGen-Assets%20Management-purple?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Xcode-15+-blue?style=for-the-badge&logo=xcode" />
+</p>
+
+---
+
+## 📂 Project Structure  
+
+```plaintext
 BattleGroundAssement/
 │── BattleGroundAssementApp.swift    # App entry point
 │── Resources/
@@ -41,41 +57,40 @@ BattleGroundAssement/
 
 ## 📸 Screenshots  
 
-| Home Screen | Themed UI | Interaction |
-|-------------|-----------|-------------|
-| ![Home](screenshots/home.png) | ![Themed](screenshots/theme.png) | ![Interaction](screenshots/interaction.png) |
-
-*(Replace with your actual screenshots in `screenshots/` folder)*
+| Home Screen | Dashboard UI | Interaction Flow |
+|-------------|--------------|------------------|
+| ![Home](screenshots/home.png) | ![Dashboard](screenshots/dashboard.png) | ![Interaction](screenshots/interaction.png) |
 
 ---
 
 ## ⚙️ Installation & Setup  
 
-1. Clone the repo:
+1. **Clone the repository**
    ```bash
    git clone https://github.com/yourusername/BattleGroundAssement.git
    cd BattleGroundAssement
    ```
 
-2. Install dependencies (SwiftGen if required):
+2. **Install SwiftGen (if not already installed)**
    ```bash
    brew install swiftgen
    ```
 
-3. Open in Xcode:
+3. **Open in Xcode**
    ```bash
    open BattleGroundAssement.xcodeproj
    ```
 
-4. Run on Simulator or Device.
+4. **Build & Run** 🚀 on a simulator or physical device.
 
 ---
 
 ## 📖 Learnings & Highlights  
 
-- Implemented **design system-driven development** with SwiftGen.  
-- Built UI with **SwiftUI best practices** for reusability and maintainability.  
-- Showcased **MVVM architecture** for scalable apps.  
+✅ Applied **MVVM** to enforce separation of concerns.  
+✅ Built with **SwiftUI best practices** for modern iOS apps.  
+✅ Used **SwiftGen** for scalable and maintainable theming.  
+✅ Designed a **dashboard-style README** to showcase the project professionally.  
 
 ---
 
@@ -84,6 +99,11 @@ BattleGroundAssement/
 **Satyam Singh**  
 💼 iOS Developer | Swift & SwiftUI Enthusiast  
 
-📫 Connect with me:  
-- [LinkedIn](https://linkedin.com/in/yourprofile)  
-- [GitHub](https://github.com/yourusername)  
+<p align="left">
+  <a href="https://linkedin.com/in/yourprofile">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" />
+  </a>
+  <a href="https://github.com/yourusername">
+    <img src="https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github" />
+  </a>
+</p>

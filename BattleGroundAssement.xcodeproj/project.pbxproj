@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5FD4960E2E8D7EB1002AFEF4 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD4960D2E8D7EB1002AFEF4 /* MBProgressHUD */; };
+		5FD497472E9001CB002AFEF4 /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD497462E9001CB002AFEF4 /* MBProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FD4960E2E8D7EB1002AFEF4 /* MBProgressHUD in Frameworks */,
+				5FD497472E9001CB002AFEF4 /* MBProgressHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +117,7 @@
 			);
 			name = BattleGroundAssement;
 			packageProductDependencies = (
-				5FD4960D2E8D7EB1002AFEF4 /* MBProgressHUD */,
+				5FD497462E9001CB002AFEF4 /* MBProgressHUD */,
 			);
 			productName = BattleGroundAssement;
 			productReference = 5FD492592E8D7649002AFEF4 /* BattleGroundAssement.app */;
@@ -202,7 +202,7 @@
 			mainGroup = 5FD492502E8D7649002AFEF4;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				5FD4960C2E8D7EB1002AFEF4 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
+				5FD497452E9001CB002AFEF4 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 5FD4925A2E8D7649002AFEF4 /* Products */;
@@ -561,7 +561,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5FD4960C2E8D7EB1002AFEF4 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
+		5FD497452E9001CB002AFEF4 /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jdg/MBProgressHUD.git";
 			requirement = {
@@ -572,9 +572,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5FD4960D2E8D7EB1002AFEF4 /* MBProgressHUD */ = {
+		5FD497462E9001CB002AFEF4 /* MBProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5FD4960C2E8D7EB1002AFEF4 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
+			package = 5FD497452E9001CB002AFEF4 /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
 			productName = MBProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
