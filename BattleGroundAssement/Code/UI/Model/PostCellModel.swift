@@ -6,3 +6,9 @@
 //
 
 import Foundation
+ 
+struct PostCellModel: Identifiable, Hashable {
+    let userID, id: Int
+    let title, body: String
+    var isFavorite: Bool = false
+}

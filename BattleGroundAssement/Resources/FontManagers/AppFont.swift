@@ -1,6 +1,6 @@
 //
 //  AppFont.swift
-//  Hyxpro-fitness-app
+//  BattleGroundAssement
 //
 //  Created by Satyam Singh on 17/06/25.
 //
@@ -29,18 +29,3 @@ extension SwiftUI.Font {
         return SwiftUI.Font(fontType.font(forLevel: .secondary))
     }
 }
-
-//struct AppFontModifier: ViewModifier {
-//    var fontType: FontType
-//    func body(content: Content) -> some View {
-//        content
-//            .font(fontType.font)
-//            .fontWeight(fontType.weight)
-//    }
-//}
-//
-//extension View {
-//    func appFont(_ type: FontType) -> some View {
-//        self.modifier(AppFontModifier(fontType: type))
-//    }
-//}

@@ -1,8 +1,8 @@
 //
-//  HyxAPIService.swift
-//  Hyxpro-fitness-app
+//  APIService.swift
+//  BattleGroundAssement
 //
-//  Created by Satyam on 08/07/25.
+//  Created by Satyam Singh on 01/10/25.
 //
 
 import Foundation
@@ -11,9 +11,9 @@ protocol APIServiceProtocol {
     func request<T: Decodable>(_ router: Router, responseType: T.Type) async throws -> T
 }
 
-final class HyxAPIService: APIServiceProtocol {
+final class APIService: APIServiceProtocol {
     
-    static let shared = HyxAPIService()
+    static let shared = APIService()
     private let urlSession: URLSession
     private let reachability: NetworkReachability
     
@@ -38,10 +38,6 @@ final class HyxAPIService: APIServiceProtocol {
             request.timeoutInterval = timeout
         }
         
-        if router.requiresAuth, let token = DataModel.shared.authToken {
-            request.addAuthorization(withToken: token)
-        }
-        
         APILogger.shared.logRequest(request, body: router.params ?? router.encodableBody)
         
         do {
@@ -51,17 +47,6 @@ final class HyxAPIService: APIServiceProtocol {
             if (200...299).contains(http.statusCode) {
                 APILogger.shared.logSuccess(request, response: http, data: data)
                 return try decode(from: data, keyPath: router.keypathToMap, request: request, response: http)
-            }
-            
-            // Handle expired token -> try refresh
-            if http.statusCode == 401, accessTokenExpiredFlag(in: data) == true {
-                guard allowRefresh else { throw NetworkError.unauthorized }
-                do {
-                    _ = try await TokenRefresher.shared.refresh(using: self)
-                } catch {
-                    throw NetworkError.unauthorized
-                }
-                return try await perform(router, responseType: T.self, allowRefresh: false)
             }
             
             APILogger.shared.logError(request, response: http, data: data)
@@ -81,46 +66,6 @@ final class HyxAPIService: APIServiceProtocol {
             }
             throw error
         }
-    }
-    
-    fileprivate func performRefresh() async throws -> Tokens {
-        guard let rt = DataModel.shared.refreshToken, !rt.isEmpty else {
-            throw NetworkError.unauthorized
-        }
-        let router = UserRouter.refereshToken(refreshToken: rt)
-        
-        let request = try router.urlRequest()
-        
-        APILogger.shared.logRequest(request, body: nil)
-        do {
-            let (data, response) = try await urlSession.data(for: request)
-            guard let http = response as? HTTPURLResponse else { throw NetworkError.invalidResponse }
-            
-            guard (200...299).contains(http.statusCode) else {
-                APILogger.shared.logError(request, response: http, data: data)
-                throw NetworkError.unauthorized
-            }
-            APILogger.shared.logSuccess(request, response: http, data: data)
-            let tokens: Tokens = try decode(from: data, keyPath: router.keypathToMap, request: request, response: http)
-            DataModel.shared.authToken = tokens.accessToken
-            return tokens
-        } catch {
-            if let urlError = error as? URLError {
-                switch urlError.code {
-                case .timedOut:
-                    throw NetworkError.requestTimeout
-                case .notConnectedToInternet, .networkConnectionLost:
-                    throw NetworkError.noInternet
-                default:
-                    throw error
-                }
-            }
-            throw error
-        }
-    }
-    
-    private func accessTokenExpiredFlag(in data: Data) -> Bool {
-        (try? JSONSerialization.jsonObject(with: data) as? [String: Any])?["access_token_expired"] as? Bool ?? false
     }
     
     func decode<T: Decodable>(from data: Data, keyPath: String?, request: URLRequest, response: HTTPURLResponse, decoder: JSONDecoder = .init()) throws -> T {
@@ -200,23 +145,5 @@ final class HyxAPIService: APIServiceProtocol {
             throw DecodingError.dataCorruptedError(in: container, debugDescription: "Unsupported date format: \(s)")
         }
     }
-    
-    actor TokenRefresher {
-        static let shared = TokenRefresher()
-        private var inFlight: Task<Tokens, Error>?
-
-        func refresh(using service: HyxAPIService) async throws -> Tokens {
-            if let task = inFlight { return try await task.value }
-            let task = Task<Tokens, Error> {
-                defer { Task { self.clear() } }
-                return try await service.performRefresh()
-            }
-            inFlight = task
-            return try await task.value
-        }
-
-        private func clear() { inFlight = nil }
-    }
-
 }
 

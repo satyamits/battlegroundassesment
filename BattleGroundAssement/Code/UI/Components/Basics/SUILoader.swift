@@ -1,6 +1,6 @@
 //
 //  SUILoader.swift
-//  Hyxpro-fitness-app
+//  BattleGroundAssement
 //
 //  Created by Satyam on 25/06/25.
 //
@@ -83,7 +83,7 @@ final class SnackbarManager: ObservableObject {
         action: (() -> Void)? = nil,
         backgroundColor: Color = .deepBlue,
         titleColor: Color = .orange,
-        messageColor: Color = .ThemeWhite,
+        messageColor: Color = .themeWhite,
         position: Snackbar.Position = .top(offset: 0.4)
     ) {
         let snackbarIcon: Snackbar.Icon

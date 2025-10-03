@@ -1,0 +1,21 @@
+strings:
+  inputs: BattleGroundAssement/Resources/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: BattleGroundAssement/Resources/SwiftGen/Strings.swift
+xcassets:
+  inputs:
+    - BattleGroundAssement/Resources/Assets.xcassets
+    - BattleGroundAssement/Resources/Colors.xcassets
+  outputs:
+    - templateName: swift5
+      output: BattleGroundAssement/Resources/SwiftGen/assets.swift
+fonts:
+  inputs:
+    - BattleGroundAssement/Resources/FontManagers/Lato
+    - BattleGroundAssement/Resources/FontManagers/PlayfairDisplay
+    - BattleGroundAssement/Resources/FontManagers/SFProRounded
+  outputs:
+    templateName: swift5
+    output: BattleGroundAssement/Resources/SwiftGen/Fonts.swift
+

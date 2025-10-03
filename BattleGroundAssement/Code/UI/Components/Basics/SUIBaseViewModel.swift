@@ -1,6 +1,6 @@
 //
 //  SUIBaseViewModel.swift
-//  Hyxpro-fitness-app
+//  BattleGroundAssement
 //
 //  Created by Satyam on 30/06/25.
 //
@@ -125,20 +125,20 @@ extension SUIBaseViewModel {
             switch networkError {
             case .noInternet:
                 self.showSnackbar(title: "No Internet Connection",
-                                  message: L10n.Network.noInternet,
+                                  message: networkError.description,
                                   icon: .system(imageName: "wifi.slash",
                                                 Color: .hyxPink),
                                   position: .top(offset: 0.8))
             case .requestFailed(_):
                 self.showSnackbar(title: "Connection Failed",
-                                  message: L10n.Network.requestFailed,
+                                  message: networkError.description,
                                   icon: .system(imageName: "flag.fill", Color: .hyxPink),
                                   action: .text("Support", .jewel, {
                     self.openSupportMail(with: error.localizedDescription)
                                   }))
             case .invalidResponse:
                 self.showSnackbar(title: "Something's off!",
-                                  message: L10n.Network.invalidResponse,
+                                  message: networkError.description,
                                   icon: .system(imageName: "exclamationmark.icloud",
                                                 Color: .hyxPink),
                                   action: .text("Support", .jewel, {
@@ -147,7 +147,7 @@ extension SUIBaseViewModel {
             case .decodingError(let error):
                 print(error)
                 self.showSnackbar(title: "Data issue",
-                                  message: L10n.Network.decodingError,
+                                  message: networkError.description,
                                   icon: .system(imageName: "exclamationmark.arrow.trianglehead.2.clockwise.rotate.90",
                                                 Color: .hyxPink),
                                   action: .text("Support", .jewel, {
@@ -155,14 +155,13 @@ extension SUIBaseViewModel {
                 }))
             case .serverError(let statusCode, let data):
                 if statusCode == 401 {
-                    DataModel.shared.logout()
-                    self.showAlert(withAlert: .error(message: L10n.Error.sessionExpiredMessage))
+                    self.showAlert(withAlert: .error(message: networkError.description))
                 }
                 if let extracted = extractMessage(from: data) {
                     self.showAlert(withAlert: .error(message: extracted))
                 } else {
                     self.showSnackbar(title: "We're offline",
-                                      message: L10n.Network.serverError,
+                                      message: networkError.description,
                                       icon: .system(imageName: "wifi.slash",
                                                     Color: .hyxPink),
                                       action: .text("Support", .jewel, {
@@ -173,7 +172,7 @@ extension SUIBaseViewModel {
                 }
             case .invalidBody:
                 self.showSnackbar(title: "Invalid Input",
-                                  message: L10n.Network.invalidBody,
+                                  message: networkError.description,
                                   icon: .system(imageName: "entry.lever.keypad.trianglebadge.exclamationmark.fill",
                                                 Color: .hyxPink),
                                   action: .text("Support", .jewel, {
@@ -182,10 +181,9 @@ extension SUIBaseViewModel {
             case .unknown:
                 self.showSnackbar(title: "", message: "Unknown error occured")
             case .notLoggedIn:
-                self.showAlert(withAlert: .error(message: L10n.Error.notLoggedIn))
+                self.showAlert(withAlert: .error(message: networkError.description))
             case .unauthorized:
-                DataModel.shared.logout()
-                self.showAlert(withAlert: .error(message: L10n.Error.unathorizedAccess))
+                self.showAlert(withAlert: .error(message: networkError.description))
             case .requestTimeout:
                 self.showSnackbar(title: "Server Timeout",
                                   message: "The server took too long to respond. Please check your connection and try again later.",

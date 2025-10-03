@@ -1,6 +1,6 @@
 //
 //  SUIActionSheet.swift
-//  Hyxpro-fitness-app
+//  BattleGroundAssement
 //
 //  Created by Satyam on 22/07/25.
 //
@@ -25,7 +25,7 @@ struct SUIActionSheet: View {
                     VStack(spacing: 0) {
                         Text(title)
                             .font(.primary(.m18).smallCaps())
-                            .foregroundColor(Color.ThemeWhite)
+                            .foregroundColor(Color.themeWhite)
                             .padding(.top, 12)
                             .padding(.bottom, 4)
                         
@@ -49,7 +49,7 @@ struct SUIActionSheet: View {
                                     .frame(maxWidth: .infinity, minHeight: 48)
                             }
                             .background(
-                                Divider().background(Color.ThemeWhite.opacity(0.1)),
+                                Divider().background(Color.themeWhite.opacity(0.1)),
                                 alignment: .top
                             )
                         }
@@ -60,7 +60,7 @@ struct SUIActionSheet: View {
                     )
                     .overlay(
                         RoundedRectangle(cornerRadius: 18)
-                            .stroke(Color.ThemeWhite.opacity(0.08), lineWidth: 1)
+                            .stroke(Color.themeWhite.opacity(0.08), lineWidth: 1)
                     )
                     .padding(.horizontal, 12)
                     .shadow(radius: 30)
@@ -74,7 +74,7 @@ struct SUIActionSheet: View {
     func foregroundColor(for style: SUIAlertAction.Style) -> Color {
         switch style {
         case .primary:
-            return Color.SuccessGreen
+            return Color.successGreen
         case .secondary:
             return Color.aeroBorderPrimary
         case .tertiary:

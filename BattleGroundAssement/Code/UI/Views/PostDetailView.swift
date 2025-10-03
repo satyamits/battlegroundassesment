@@ -1,3 +1,13 @@
+//
+//  PostDetailView.swift
+//  BattleGroundAssement
+//
+//  Created by Satyam Singh on 01/10/25.
+//
+
+
+import SwiftUI
+
 import SwiftUI
 
 struct PostDetailView: View {
@@ -7,22 +17,30 @@ struct PostDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                Text(post.title)
+                Text(post.title.capitalizedFirst)
                     .font(.title)
                     .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 
-                Text(post.body)
+                Text(post.body.capitalizedFirst)
                     .font(.body)
-                
-                Button(action: toggleFavorite) {
-                    Label(post.isFavorite ? "Unfavorite" : "Favorite",
-                          systemImage: post.isFavorite ? "heart.fill" : "heart")
-                        .foregroundColor(post.isFavorite ? .red : .blue)
-                        .padding()
-                }
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .padding()
+            .background(.aeroBorderSecondary)
+            .innerShadow(cornerRadius: 12)
             .padding()
         }
         .navigationTitle("Post Detail")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: toggleFavorite) {
+                    Image(systemName: post.isFavorite ? "heart.fill" : "heart")
+                        .foregroundColor(post.isFavorite ? .red : .gray)
+                }
+            }
+        }
     }
 }
+
