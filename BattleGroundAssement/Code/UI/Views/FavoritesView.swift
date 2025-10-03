@@ -55,7 +55,7 @@ struct FavoritesView: View {
     func itemCard(_ post: PostCellModel, like: @escaping () -> Void) -> some View {
         HStack(alignment: .top) {
             VStack(alignment: .leading) {
-                Text(post.title).font(.headline)
+                Text(post.title.capitalizedFirst).font(.headline)
                 Text("User ID: \(post.userID)").font(.subheadline)
             }
             Spacer()

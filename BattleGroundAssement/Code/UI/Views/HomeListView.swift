@@ -60,10 +60,13 @@ struct HomeListView: View {
     func itemCard(_ post: PostCellModel, like: @escaping () -> Void) -> some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(post.title).font(.headline)
+                Text(post.title.capitalizedFirst).font(.headline)
                 Text("User ID: \(post.userID)").font(.subheadline)
             }
             Spacer()
+            
+            Image(systemName: "chevron.right")
+                .foregroundStyle(.darkGrey)
             VStack {
                 Image(systemName: "heart.fill")
                     .foregroundColor(post.isFavorite ? .red : .gray)
@@ -72,8 +75,6 @@ struct HomeListView: View {
                     }
                 Spacer()
             }
-            Image(systemName: "chevron.right")
-                .foregroundStyle(.darkGrey)
         }
         .padding()
         .innerShadow(color: .PRIMARY, radius: 8, cornerRadius: 12)

@@ -28,7 +28,8 @@ struct PostDetailView: View {
             }
             .padding()
             .background(.aeroBorderSecondary)
-            .innerShadow(cornerRadius: 12)
+            .cornerRadius(12)
+            .innerShadow(color: .blackPrimary, cornerRadius: 12)
             .padding()
         }
         .navigationTitle("Post Detail")
