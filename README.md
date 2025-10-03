@@ -1,8 +1,4 @@
-# 📱 BattleGround Assessment  
-
-<p align="center">
-  <img src="screenshots/banner.png" alt="App Banner" width="800"/>
-</p>  
+# 📱 BattleGround Assessment   
 
 <p align="center">
   <b>A modern iOS application built with SwiftUI, MVVM, and SwiftGen demonstrating clean architecture, scalable design, and a beautiful UI experience.</b>
@@ -59,7 +55,10 @@ BattleGroundAssement/
 
 | Home Screen | Dashboard UI | Interaction Flow |
 |-------------|--------------|------------------|
-| ![Home](screenshots/home.png) | ![Dashboard](screenshots/dashboard.png) | ![Interaction](screenshots/interaction.png) |
+
+<img width="1179" height="2556" alt="FavrotiesList" src="https://github.com/user-attachments/assets/1486b6d1-fadf-453b-b6bb-f739b792c79a" />
+<img width="1179" height="2556" alt="Favroties" src="https://github.com/user-attachments/assets/4e077808-187f-49f0-944e-0e9c9950b3ec" />
+<img width="1179" height="2556" alt="Details" src="https://github.com/user-attachments/assets/78224eba-58d1-4ed1-9424-1058d234d856" />
 
 ---
 
